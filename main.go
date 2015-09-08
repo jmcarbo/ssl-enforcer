@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -10,7 +11,12 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
 }
 
+func ok(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "I am healthy!")
+}
+
 func main() {
+	http.HandleFunc("/gce-health-check", ok)
 	http.HandleFunc("/", redirect)
 	log.Println("Listening on :9090")
 	err := http.ListenAndServe(":9090", nil)
