@@ -6,7 +6,7 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	log.Printf("hello from redirect %s\n", "https://"+r.Host+r.URL.Path)
+	log.Printf("Redirecting to %s\n", "https://"+r.Host+r.URL.Path)
 	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
 }
 
@@ -16,5 +16,4 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
-
 }
