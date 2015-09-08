@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: enforcer-edge
+  labels:
+    name: enforcer-edge
+    env: edge
+    version: 0.0.1
+spec:
+  ports:
+    - port: 80
+      targetPort: 9090
+      nodePort: 32083
+      protocol: TCP
+      name: http
+  selector:
+    name: enforcer
+    env: edge
