@@ -12,9 +12,9 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", redirect)
+	log.Println("Listening on :9090")
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
-	log.Println("Listening on :9090")
 }
