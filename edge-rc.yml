@@ -1,27 +1,27 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: enforcer-edge-v0.0.1
+  name: enforcer-edge-v0.0.2
   labels:
     name: enforcer
     env: edge
-    version: 0.0.1
+    version: 0.0.2
 spec:
   replicas: 3
   selector:
     name: enforcer
     env: edge
-    version: 0.0.1
+    version: 0.0.2
   template:
     metadata:
       labels:
         name: enforcer
         env: edge
-        version: 0.0.1
+        version: 0.0.2
     spec:
       containers:
         - name: mouth
-          image: eu.gcr.io/gi-harbour/enforcer:0.0.1
+          image: eu.gcr.io/gi-harbour/enforcer:0.0.2
           ports:
             - containerPort: 9090
               protocol: TCP

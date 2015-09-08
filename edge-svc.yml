@@ -5,7 +5,7 @@ metadata:
   labels:
     name: enforcer-edge
     env: edge
-    version: 0.0.1
+    version: 0.0.2
 spec:
   type: NodePort
   ports:
